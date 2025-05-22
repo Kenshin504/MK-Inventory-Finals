@@ -1,0 +1,1006 @@
+@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+@import url("https://fonts.cdnfonts.com/css/telegraf");
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
+/*Top Bar Section */
+.nav-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #4cb7a5;
+  height: 80px;
+  color: white;
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between;*/
+  padding: 0px 15px;
+  z-index: 900; /* Ensure top bar is above content section */
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 30x;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.page-header-product,
+.page-header-stocks,
+.page-header-sales,
+.page-header-account,
+.page-header-staffList,
+.page-header-about,
+.page-header-dashboard {
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 90px;
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.page-header-product {
+  background: url("../images/4.png") no-repeat;
+}
+
+.page-header-stocks {
+  background: url("../images/2.png") no-repeat;
+}
+
+.page-header-sales {
+  background: url("../images/8.png") no-repeat;
+}
+
+.page-header-account,
+.page-header-staffList {
+  background: url("../images/7.png") no-repeat;
+}
+
+.page-header-about,
+.page-header-dashboard {
+  background: url("../images/10.png") no-repeat;
+}
+
+.page-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 112, 90, 0.39);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.nav-top.shifted-top {
+  /* This applies when the sidebar is NOT collapsed (expanded) */
+  margin-left: 240px; /* Should match the sidebar width */
+  width: calc(100% - 240px); /* Should match the content section width */
+  max-width: unset; /* Allow width to be calculated */
+}
+
+.nav-top.expanded-top {
+  /* This applies when the sidebar IS collapsed */
+  margin-left: 0;
+  width: 100%;
+}
+
+.top-content {
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between; This balances the content */
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 15px;
+  /*margin-left: 0;
+  margin-right: 30px;
+  padding-right: 10px;*/
+}
+
+/* These might be redundant with nav-top shifted/expanded */
+/*
+.top-content.shifted-top {
+  left: 0px;
+  margin-right: 20px;
+}
+
+.top-content.expanded-top {
+  margin-left: 0;
+  width: 100%;
+  margin-right: 40px;
+}
+*/
+
+.inventory-name {
+  font-family: "Telegraf", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 15px; /* Default margin */
+  white-space: nowrap; /* Prevent breaking in the middle of title */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*max-width: 60%;*/
+  flex-shrink: 1;
+}
+
+/*User Photo in Top Bar*/
+.user-logo {
+  width: 47px;
+  height: 47px;
+  padding: 0;
+  border-radius: 50%;
+  border: solid 8px transparent;
+}
+
+/*User container in Top Bar*/
+.user_top-bar {
+  top: 0px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-left: auto;
+  margin-right: 20px;
+  flex-shrink: 0;
+  /*min-width: 200px; prevents shifting too far left */
+  justify-content: flex-end;
+}
+
+.user-settings {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/*see logout*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  font-size: 15px;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 1;
+  right: 0; /* Position dropdown to the right */
+}
+
+.dropdown-content a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 17px;
+  border-radius: 5px;
+}
+
+.user-dropdown a:hover {
+  background-color: #20b2aa;
+  color: white;
+  font-weight: bold;
+}
+
+.user-dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.user-settings:focus {
+  outline: none;
+}
+
+.side-bar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.side-bar::-webkit-scrollbar-track {
+  background-color: #ccffee; /* Scrollbar background */
+}
+
+.side-bar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Scrollbar handle */
+}
+
+.side-bar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Side-Bar Section */
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px; /* Default width when expanded */
+  background-color: #ccffee;
+  padding-top: 20px;
+  color: black;
+  z-index: 1000; /* Ensure sidebar is above top bar when visible */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+  scroll-behavior: smooth;
+  transition: width 0.3s ease, padding 0.3s ease;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Styles for when the sidebar is collapsed */
+.side-bar.collapsed {
+  width: 0; /* Collapse the width */
+  padding-top: 0;
+  padding-bottom: 0;
+   border-right: none; /* Hide border if any */
+   overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+/* Ensure side-content is not displayed when collapsed */
+.side-bar.collapsed .side-content {
+  display: none;
+}
+
+.side-content {
+  padding-bottom: 40px;
+}
+
+/* Centering content inside the side-bar */
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+/* Big logo in the side bar */
+.logo-part {
+  background: url("../images/logo-dashboard_black.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+
+.logo-part:hover {
+  transform: scale(1.1);
+  border: 7px solid transparent; 
+  border-color: #00050604;
+  background-color: #00050624;
+  border-radius: 25px;
+  margin-bottom: -12.5px;
+}
+
+/* Small logo toggle in the top bar */
+.logo-part-small-toggle {
+  background: url("../images/logo-dashboard_black.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80px;  
+  height: 80px; 
+  margin-left: 10px; 
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  z-index: 1001;
+  opacity: 1;
+  box-sizing: border-box;
+  border: 10px solid transparent; 
+}
+
+.logo-part-small-toggle:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+  border-color:  #0098b3;
+  background-color: #0098b3;
+  border-radius: 7px;
+}
+
+.welcome-text {
+  font-family: "Telegraf", sans-serif;
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 25px;
+}
+
+/* Navigation Links Section */
+.links {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 0 15px 30px;
+  font-size: 18px;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.link-content {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between icon and text */
+}
+
+/* Active link style */
+.active-link {
+  width: 100%;
+  padding-left: 16px;
+  display: block;
+  font-weight: bold;
+  padding: 12px;
+  background-color: #9beefd /*rgba(0, 0, 0, 0.115)*/;
+  box-sizing: border-box;
+}
+
+.active-link span {
+  color:#0f312b;
+}
+
+.active-link svg {
+  fill: #0f312b;
+}
+
+.active-link:hover {
+  background-color: #24605687;
+  color: white;
+}
+
+.active-link:hover .link-content span {
+  color: white;
+}
+
+.active-link:hover .link-content svg {
+  color: white;
+}
+
+.links a:hover .link-content svg,
+.links a.active .link-content svg {
+  fill: white;
+}
+
+.links a:hover,
+.links a.active {
+  background-color: #24605687;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+}
+
+/* icon */
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+h3 {
+  user-select: none; /* Prevents text selection */
+  pointer-events: auto; /* Ensures the link behaves normally */
+}
+
+a {
+  user-select: none; /* Prevents text selection */
+  pointer-events: auto; /* Ensures the link behaves normally */
+}
+
+/*general button to use in content section*/
+.edit-button {
+  background-color: #4cb7a5;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 15px;
+  margin: 7px;
+}
+
+.product-action-button {
+  background-color: #212121;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 15px;
+  margin: 7px;
+  z-index: 1;
+}
+
+.edit-button:hover {
+  background-color: #368275;
+  color: white;
+}
+
+.product-action-button:hover {
+  background-color: #20b2aa;
+  color: black;
+}
+
+.stock-nav, .product-nav, .sales-controls {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex; /* Enable flexbox for these containers */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 10px; /* Space between elements */
+  align-items: center; /* Align items vertically in the middle */
+}
+
+.stock-nav input[type="text"],
+.product-nav input[type="text"],
+.sales-controls input[type="text"] {
+  padding: 10px;
+  border: solid;
+  border-radius: 7px;
+  border-width: 2px;
+  width: 300px;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.product-image {
+  height: 90px;
+  width: 110px;
+  object-fit: cover;
+}
+
+.product-category, .payment-status {
+  overflow: hidden;
+  background-color: #e5e4e2;
+  border: 1px #e5e4e2;
+  padding: 10px;
+  border-radius: 7px;
+  border-width: 2px;
+  width: 180px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.payment-status {
+  width: 130px;
+}
+
+
+/* Updated product-form styles */
+.product-form, .sales-form, .stock-form {
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0px; 
+  row-gap: 15px;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.product-form div,
+  .sales-form div,
+  .stock-form div {
+    padding-right: 0px;
+  }
+
+/* Container for each label-input/select pair */
+.product-form .form-group,
+.sales-form .form-group,
+.stock-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between label and input */
+  padding: 0;
+}
+
+/* Container for grouping input elements into rows */
+.product-form .form-row,
+.sales-form .form-row,
+.stock-form .form-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 30px; /* Space between form-group items in a row */
+  align-items: flex-end; /* Align items to the bottom of the row */
+}
+
+/* Style for individual form-group items within a row */
+.product-form .form-row .form-group,
+.sales-form .form-row .form-group,
+.stock-form .form-row .form-group {
+  width: calc(50% - 15px); /* Two equal-width columns with 30px total gap */
+  min-width: 250px;         /* Ensure it doesn't shrink too much */
+  box-sizing: border-box;
+}
+
+.sales-item-input,
+.product-form input,
+.product-form select,
+.sales-form input,
+.sales-form select,
+.stock-form input,
+.stock-form select {
+  padding: 10px;
+  width: 80%; 
+  max-width: 80%;
+  box-sizing: border-box;
+  background-color: #e5e4e2;
+  border: 1px solid #e5e4e2;
+  border-radius: 5px;
+}
+
+.sales-item-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 15px;
+  margin-top: 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.sales-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.sales-item input {
+  width: 55%;
+  margin-top: 10px;
+}
+
+
+.product-form label, .sales-form label, .stock-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Button container for forms (separate row at the bottom) */
+.product-form .button-group, .sales-form .button-group, .stock-form .button-group {
+  display: flex;
+  justify-content: flex-start; /* Align buttons to the left */
+  gap: 10px; /* Space between buttons */
+  margin-top: 15px; /* Add some top margin to separate from inputs */
+  width: 100%; /* Ensure button group takes full width */
+}
+
+.product-form button, .sales-form button, .stock-form button {
+  margin-right: 20px; /* Remove individual button margins to use gap */
+}
+
+
+.table-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: fit-content;
+  padding-right: 1rem;
+  margin-top: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+  background-color: #faf9f9;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  border-collapse: collapse;
+  background: white;
+  background-color: white;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-spacing: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+table thead {
+  background-color: #4cb7a5;
+  color: white;
+}
+
+thead th:first-child {
+  border-top-left-radius: 8px;
+  border-left: none;
+}
+
+thead th:last-child {
+  border-top-right-radius: 8px;
+  border-right: none;
+}
+
+table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+  border-left: none;
+}
+
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr td:last-child {
+  border-right: none;
+}
+
+table tbody tr:first-child td:first-child {
+  border-left: none;
+}
+
+tbody tr td:first-child {
+  border-left: none;
+}
+
+td,
+th {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid #DFE0E2;
+  border-left: 2px solid #DFE0E2;
+  width: 1%;
+  white-space: nowrap;
+}
+
+th {
+  border-bottom: 1px solid #4cb7a5;
+}
+
+td {
+  margin: 0;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.content-header {
+  font-size: 40px;
+  /*font-family: "Telegraf", sans-serif;*/
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  display: block;
+  line-height: 1.3;
+  width: calc(100% - 40px);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/*Content Section*/
+.content-section {
+  padding: 30px;
+  background-color: #faf9f9;
+  margin-top: 10px;
+  margin-left: 240px; /* Default margin when sidebar is expanded */
+  min-height: 80vh;
+  width: calc(100% - 240px); /* Default width when sidebar is expanded */
+  max-width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  /*transition: margin-left 0.3s ease, width 0.3s ease;*/
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Product form container styles (new styles) */
+.product-form-container,
+.sales-form-container,
+.stock-form-container {
+  border: 2px solid #ccc; /* Border instead of overlay */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px;
+  margin-bottom: 25px; /* Space between form and table */
+  background-color: white; /* Ensure background is white */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/*
+  The .hidden-overlay and .popup-content styles are retained
+  but will no longer be used for the product form directly,
+  as the form is now rendered inline.
+  They might still be used for other popups in the application.
+*/
+.hidden-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  overflow-y: auto;
+}
+
+.popup-content {
+  position: absolute;
+  background: white;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.saveprofile-button {
+  background-color: #222;
+  border-radius: 7px;
+  padding: 11px;
+  width: 100px;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-style: none;
+}
+
+.saveprofile-button:active {
+  background: #009087;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.98);
+  filter: brightness(0.9);
+}
+
+.saveprofile-button:hover {
+  color: white;
+  background: #009087;
+}
+
+.editprofile-input {
+  padding: 10px;
+  width: 300px;
+  background-color: #e5e4e2;
+  border: 1px #e5e4e2;
+  border-radius: 5px;
+}
+
+.calendar {
+  margin-top: 5px;
+  padding: 10px;
+  width: 150px;
+  background-color: white;
+  border: 2px rgb(130, 130, 130);
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.change-picture {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 0px;
+  padding-right: 40px;
+}
+
+.account-pic {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.account-form {
+  width: fit-content;
+}
+
+
+/*container for info in about section*/
+.about-content {
+  padding: 10px;
+  padding-top: 0px;
+  line-height: 2;
+}
+
+.filter {
+  overflow: hidden;
+  background-color: white;
+  padding: 10px;
+  border: solid;
+  border-radius: 7px;
+  border-width: 2px;
+  width: 200px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.prev-next-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.prev-next-button a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.prev-next-button a:hover {
+  background-color: #a8a8a8;
+  color: black;
+}
+
+.previous {
+  background-color: #dbdbdb;
+  color: black;
+}
+
+.next {
+  background-color: #368275;
+  color: white;
+}
+
+@media screen and (max-width: 992px) {
+  /* Adjustments for smaller screens */
+
+  .logo-part-small-toggle {
+    display: block; /* Ensure small logo is visible on small screens when sidebar is collapsed */
+  }
+
+  .hidden-overlay {
+    height: 100%;
+  }
+
+  .content-section {
+    /* On small screens, content section always takes full width below top bar */
+    margin-left: 0;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .content-header {
+    font-size: 35px;
+    padding: 0 15px;
+    width: calc(100% - 30px);
+  }
+
+  .inventory-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+    max-width: calc(100% - 150px); /* Adjust max-width considering small logo and user info */
+  }
+
+  .nav-top {
+    padding: 0 10px;
+  }
+
+  .top-content {
+    gap: 10px;
+  }
+
+
+  .product-form, .sales-form, .stock-form {
+    grid-template-columns: 1fr; 
+    gap: 15px; 
+    padding: 15px;
+  }
+
+  .product-form .form-row, .sales-form .form-row, .stock-form .form-row {
+    flex-direction: column; /* Stack rows vertically on small screens */
+    gap: 20px; /* Gap between stacked rows */
+  }
+
+  .product-form .form-row .form-group, .sales-form .form-row .form-group, .stock-form .form-row .form-group {
+    max-width: 100%; /* Take full width on small screens */
+  }
+
+  .product-form input,
+  .product-form select,
+  .sales-form input,
+  .sales-form select,
+  .stock-form input,
+  .stock-form select {
+    width: 100%; 
+    max-width: 100%; 
+  }
+
+  .product-form div,
+  .sales-form div,
+  .stock-form div {
+    margin-right: 10px;
+  }
+
+  .product-form .form-group, .sales-form .form-group, .stock-form .form-group {
+    align-items: center; /* Center content within each form-group */
+    text-align: center;
+  }
+
+  .product-form label, .sales-form label, .stock-form label {
+    text-align: center; /* Center labels on smaller screens */
+  }
+
+  .product-form .button-group, .sales-form .button-group, .stock-form .button-group {
+    justify-content: center; /* Center buttons on small screens */
+  }
+
+  .upload-box {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 2px dashed gray;
+    border-radius: 0;
+    text-align: center;
+  }
+
+   .upload-box button {
+       margin-top: 15px;
+       margin-right: 0;
+       margin-left: 0;
+   }
+
+
+  .dashboard-container {
+    flex-direction: column;
+  }
+}

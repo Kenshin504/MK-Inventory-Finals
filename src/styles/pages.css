@@ -1,0 +1,22 @@
+/*Dashboard Contents */
+.container-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/*Dashboard Filter*/
+.filter-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.dashboard-filter {
+  background-color: white;
+  border-color: black;
+  padding: 10px;
+  border-radius: 7px;
+  border-width: 2px;
+  margin-left: 10px;
+  width: 200px;
+}
